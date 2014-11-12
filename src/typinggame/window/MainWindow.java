@@ -5,7 +5,8 @@
  */
 package typinggame.window;
 
-import javax.swing.JFrame;
+import java.awt.Container;
+import javax.swing.*;
 
 /**
  *
@@ -18,6 +19,22 @@ public class MainWindow extends JFrame{
         this.setSize(400, 200);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        JLabel label1 = new JLabel();
+        JLabel label2 = new JLabel();
+        JLabel label3 = new JLabel();
+        this.add(label1); 
+        this.add(label2);
+        this.add(label3);
+    
+        Container c = this.getContentPane();
+        BoxLayout layout = new BoxLayout(c,BoxLayout.Y_AXIS);
+        this.setLayout(layout);
+    
+        label1.setText("Word to be typed");
+        label2.setText("Timer"); 
+        label3.setText("User will type the word here");
+        
     }
     
 }
