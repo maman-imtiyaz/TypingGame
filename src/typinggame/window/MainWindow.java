@@ -13,6 +13,7 @@ import javax.swing.*;
  * @author Ken Kustian <ken.kustian at gmail.org>
  */
 public class MainWindow extends JFrame{
+   
 
     public MainWindow(String windowTitle){
         this.setTitle(windowTitle);
@@ -21,19 +22,20 @@ public class MainWindow extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JLabel label1 = new JLabel();
-        JLabel label2 = new JLabel();
-        JLabel label3 = new JLabel();
-        this.add(label1); 
-        this.add(label2);
-        this.add(label3);
+        JTextField textfield1 = new JTextField();
+        JTextField textfield2 = new JTextField(); 
+        
+        this.add(textfield1); 
+        this.add(label1);
+        this.add(textfield2);
     
         Container c = this.getContentPane();
         BoxLayout layout = new BoxLayout(c,BoxLayout.Y_AXIS);
         this.setLayout(layout);
     
-        label1.setText("Word to be typed");
-        label2.setText("Timer"); 
-        label3.setText("User will type the word here");
+        textfield1.setText("Word to be typed");
+        label1.setText("Timer"); 
+        textfield2.setText("User will type the word here");
         
     }
     
