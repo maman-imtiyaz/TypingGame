@@ -5,7 +5,7 @@
  */
 package typinggame.window;
 
-import java.awt.Container;
+import java.awt.*;
 import javax.swing.*;
 
 /**
@@ -13,30 +13,32 @@ import javax.swing.*;
  * @author Ken Kustian <ken.kustian at gmail.org>
  */
 public class MainWindow extends JFrame{
-   
 
     public MainWindow(String windowTitle){
         this.setTitle(windowTitle);
         this.setSize(400, 200);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        JLabel label1 = new JLabel();
-        JTextField textfield1 = new JTextField();
-        JTextField textfield2 = new JTextField(); 
-        
-        this.add(textfield1); 
-        this.add(label1);
-        this.add(textfield2);
-    
+            
         Container c = this.getContentPane();
         BoxLayout layout = new BoxLayout(c,BoxLayout.Y_AXIS);
         this.setLayout(layout);
-    
-        textfield1.setText("Word to be typed");
-        label1.setText("Timer"); 
-        textfield2.setText("User will type the word here");
         
+        JTextField textField1 = new JTextField();
+        textField1.setHorizontalAlignment(JTextField.CENTER);
+        this.add(textField1);
+        textField1.setText("Word to be typed");
+        
+        JLabel label = new JLabel();
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.add(label);
+        label.setText("Timer"); 
+        
+        JTextField textField2 = new JTextField();
+        textField2.setHorizontalAlignment(JTextField.CENTER);
+        this.add(textField2);
+        textField2.setText("User will type the word here");
+           
     }
     
 }

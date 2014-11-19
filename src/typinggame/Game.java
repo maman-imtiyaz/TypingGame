@@ -12,7 +12,7 @@ public class Game {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new MainWindow("Typing Game");
+        MainWindow mainWindow = new MainWindow("Typing Game");
     }
     
 }
