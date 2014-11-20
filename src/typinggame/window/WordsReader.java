@@ -6,34 +6,47 @@
 package typinggame.window;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Maman-QA
  */
 public class WordsReader {
-     // Method baca file
-    public static String bacaFile(String kata) {
+
+    /**
+     * <p>
+     * Membaca kata dari sebuah berkas
+     * <p>
+     * @param path lokasi berkas yang akan dibaca
+     * @return List berisi kata
+     */
+    public static List<String> bacaFile(String path) {
         BufferedReader br = null;
-        String stringHasil = "";
- 
+        // variable penampung Arraylist bertipe String, liat tanda <String>
+        // array ini diinisialisasi dengan kapasitas 0
+        List<String> hasil = new ArrayList(0);
+
         try {
             String sCurrentLine;
-            br = new BufferedReader(new FileReader(kata));
+            br = new BufferedReader(new FileReader(path));
             while ((sCurrentLine = br.readLine()) != null) {
-                stringHasil = stringHasil + sCurrentLine + "\n";
+                // setiap kata yang dibaca akan ditampung ke dalam arraylist
+                hasil.add(sCurrentLine);
             }
- 
+
         } catch (IOException e) {
-            System.out.println("Gagal membaca file " + kata);
-            e.printStackTrace();
+            System.out.println("Gagal membaca file " + path);
         } finally {
             try {
-                if (br != null)
+                if (br != null) {
                     br.close();
+                }
             } catch (IOException ex) {
             }
         }
-        return stringHasil;
-}
+        // mengembalikan hasil 
+        return hasil;
+    }
 }
