@@ -2,6 +2,7 @@ package typinggame;
 
 import java.util.List;
 import java.util.Random;
+import typinggame.window.MainWindow;
 import typinggame.window.WordsReader;
 
 /**
@@ -14,7 +15,7 @@ public class Game {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //MainWindow mainWindow = new MainWindow("Typing Game");
+        MainWindow mainWindow = new MainWindow("Typing Game");
         
         // tampung kata yang dibaca ke dalam arraylist
         List<String> words = WordsReader.bacaFile("kata.txt");
