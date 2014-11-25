@@ -8,7 +8,18 @@ package typinggame.window;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
+import typinggame.Game;
 
 /**
  *
@@ -19,6 +30,7 @@ public class MainWindow extends JFrame {
     int i = 0;
     Timer timer;
     JLabel label;
+
     public MainWindow(String windowTitle) {
         this.setTitle(windowTitle);
         this.setSize(400, 200);
@@ -43,6 +55,22 @@ public class MainWindow extends JFrame {
         textField2.setHorizontalAlignment(JTextField.CENTER);
         this.add(textField2);
         textField2.setText("User will type the word here");
+        textField2.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent ke) {
+                AudioInputStream audioIn;
+                try {
+                    audioIn = AudioSystem.getAudioInputStream(Game.class.getResource("sound/key.wav"));
+                    Clip clip = AudioSystem.getClip();
+                    clip.open(audioIn);
+                    clip.start();
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                    Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                super.keyPressed(ke);
+            }
+
+        });
 
         timer = new Timer(1000, new ActionListener() {
             @Override
