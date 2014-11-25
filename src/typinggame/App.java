@@ -9,7 +9,7 @@ import typinggame.window.WordsReader;
  *
  * @author Ken Kustian <ken.kustian at gmail.org>
  */
-public class Game {
+public class App {
 
     /**
      * @param args the command line arguments

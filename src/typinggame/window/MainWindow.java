@@ -19,7 +19,7 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
-import typinggame.Game;
+import typinggame.App;
 
 /**
  *
@@ -60,7 +60,7 @@ public class MainWindow extends JFrame {
             public void keyPressed(KeyEvent ke) {
                 AudioInputStream audioIn;
                 try {
-                    audioIn = AudioSystem.getAudioInputStream(Game.class.getResource("sound/key.wav"));
+                    audioIn = AudioSystem.getAudioInputStream(App.class.getResource("sound/key.wav"));
                     Clip clip = AudioSystem.getClip();
                     clip.open(audioIn);
                     clip.start();
